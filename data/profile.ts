@@ -15,6 +15,7 @@ export type Project = {
 
 export type Profile = {
   name: string;
+  resumeLabel: string;
   role: string;
   headline: string;
   intro: string;
@@ -27,7 +28,8 @@ export type Profile = {
 };
 
 export const profile: Profile = {
-  name: "",
+  name: "Bruno Souza",
+  resumeLabel: "Curriculo em PDF",
   role: "Em formação para atuar com backend",
   headline:
     "Estou construindo minha base para atuar com backend por meio de projetos em Python focados em CRUD, persistencia de dados e organizacao de logica.",

@@ -205,6 +205,18 @@ export default function Home() {
 
         <div className="contact-panel">
           {profile.contact.map((item) => (
+            item.label === "Curriculo" ? (
+              <a
+                key={item.href}
+                className="contact-link"
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{item.label}</span>
+                <strong>{profile.resumeLabel}</strong>
+              </a>
+            ) : (
             <a
               key={item.href}
               className="contact-link"
@@ -215,6 +227,7 @@ export default function Home() {
               <span>{item.label}</span>
               <strong>{item.href.replace("mailto:", "")}</strong>
             </a>
+            )
           ))}
         </div>
       </section>
