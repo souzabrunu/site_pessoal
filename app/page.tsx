@@ -1,0 +1,223 @@
+import Image from "next/image";
+import { profile } from "@/data/profile";
+
+const sections = [
+  { id: "sobre", label: "Sobre" },
+  { id: "momento-atual", label: "Momento Atual" },
+  { id: "projetos", label: "Projetos" },
+  { id: "objetivos", label: "Objetivos" },
+  { id: "contato", label: "Contato" },
+];
+
+export default function Home() {
+  return (
+    <main className="page-shell">
+      <div className="ambient ambient-left" aria-hidden="true" />
+      <div className="ambient ambient-right" aria-hidden="true" />
+
+      <header className="hero">
+        <nav className="topbar" aria-label="Navegacao principal">
+          <a className="brand" href="#topo">
+            {profile.name}
+          </a>
+
+          <div className="nav-links">
+            {sections.map((section) => (
+              <a key={section.id} href={`#${section.id}`}>
+                {section.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <section id="topo" className="hero-content">
+          <div className="hero-copy">
+            <p className="eyebrow">Curriculo vivo • foco em backend</p>
+            <h1>{profile.role}</h1>
+            <p className="headline">{profile.headline}</p>
+            <p className="intro">{profile.intro}</p>
+
+            <div className="hero-details">
+              <p className="hero-details-title">O que estou fortalecendo agora</p>
+              <ul className="hero-details-list">
+                {profile.currentFocus.slice(0, 3).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projetos">
+                Ver projetos
+              </a>
+              <a className="button button-secondary" href="#contato">
+                Entrar em contato
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-side">
+            <div className="hero-photo-card">
+              <div className="hero-photo-frame">
+                <Image
+                  src="/bruno-souza-hero.jpeg"
+                  alt="Retrato profissional de Bruno Souza"
+                  fill
+                  priority
+                  sizes="(max-width: 960px) 100vw, 34vw"
+                  className="hero-photo"
+                />
+              </div>
+
+              <div className="hero-photo-badge">
+                <span className="photo-badge-kicker">Perfil profissional</span>
+                <strong>Bruno Souza</strong>
+                <p>Engenharia da Computacao • foco em backend</p>
+              </div>
+            </div>
+
+            <aside className="hero-panel" aria-label="Resumo profissional">
+              <span className="panel-label">Direcao atual</span>
+              <strong>Backend como carreira principal</strong>
+              <p>
+                Estou fortalecendo fundamentos de programacao, CRUD e
+                persistencia de dados para transformar essa base em experiencia
+                pratica com desenvolvimento backend.
+              </p>
+
+              <ul className="tag-list">
+                <li>Python</li>
+                <li>CRUD</li>
+                <li>JSON e CSV</li>
+                <li>Logica</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+      </header>
+
+      <section id="sobre" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Quem sou eu</p>
+          <h2>Uma apresentacao objetiva sobre minha jornada.</h2>
+        </div>
+
+        <div className="two-column">
+          <p className="body-copy">
+            Estou construindo minha carreira com foco em desenvolvimento
+            backend. Meu interesse principal esta em entender como sistemas
+            funcionam por tras da interface: fluxo de dados, estrutura de APIs,
+            persistencia, regras de negocio e confiabilidade.
+          </p>
+
+          <ul className="highlight-list">
+            {profile.strengths.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="momento-atual" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">O que faco atualmente</p>
+          <h2>Estudo direcionado para construir repertorio tecnico util.</h2>
+        </div>
+
+        <div className="focus-grid">
+          {profile.currentFocus.map((item) => (
+            <article key={item} className="focus-card">
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="projetos" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Projetos em destaque</p>
+          <h2>Projetos pensados para mostrar raciocinio tecnico em backend.</h2>
+        </div>
+
+        <div className="project-grid">
+          {profile.projects.map((project) => (
+            <article key={project.name} className="project-card">
+              <div className="project-header">
+                <h3>{project.name}</h3>
+                <div className="stack-list" aria-label="Tecnologias usadas">
+                  {project.stack.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </div>
+
+              <p className="project-description">{project.description}</p>
+
+              <dl className="project-details">
+                <div>
+                  <dt>Desafio tecnico</dt>
+                  <dd>{project.technicalChallenge}</dd>
+                </div>
+                <div>
+                  <dt>Decisao principal</dt>
+                  <dd>{project.decisions}</dd>
+                </div>
+                <div>
+                  <dt>Aprendizado</dt>
+                  <dd>{project.learning}</dd>
+                </div>
+              </dl>
+
+              <div className="project-links">
+                {project.links.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="objetivos" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">O que estou buscando</p>
+          <h2>Meu objetivo e transformar estudo consistente em experiencia real.</h2>
+        </div>
+
+        <div className="goal-panel">
+          <p className="goal-copy">{profile.searchFor}</p>
+
+          <ul className="goal-list">
+            {profile.careerGoals.map((goal) => (
+              <li key={goal}>{goal}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="contato" className="content-section contact-section">
+        <div className="section-heading">
+          <p className="section-kicker">Contato</p>
+          <h2>Links diretos para acompanhar minha evolucao profissional.</h2>
+        </div>
+
+        <div className="contact-panel">
+          {profile.contact.map((item) => (
+            <a
+              key={item.href}
+              className="contact-link"
+              href={item.href}
+              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
+            >
+              <span>{item.label}</span>
+              <strong>{item.href.replace("mailto:", "")}</strong>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
