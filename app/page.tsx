@@ -16,7 +16,7 @@ export default function Home() {
       <div className="ambient ambient-right" aria-hidden="true" />
 
       <header className="hero">
-        <nav className="topbar" aria-label="Navegacao principal">
+        <nav className="topbar" aria-label="Navegação principal">
           <a className="brand" href="#topo">
             {profile.name}
           </a>
@@ -32,7 +32,7 @@ export default function Home() {
 
         <section id="topo" className="hero-content">
           <div className="hero-copy">
-            <p className="eyebrow">Curriculo vivo • foco em backend</p>
+            <p className="eyebrow">Currículo vivo • foco em backend</p>
             <h1>{profile.role}</h1>
             <p className="headline">{profile.headline}</p>
             <p className="intro">{profile.intro}</p>
@@ -72,24 +72,24 @@ export default function Home() {
               <div className="hero-photo-badge">
                 <span className="photo-badge-kicker">Perfil profissional</span>
                 <strong>Bruno Souza</strong>
-                <p>Engenharia da Computacao • foco em backend</p>
+                <p>Engenharia da Computação • foco em backend</p>
               </div>
             </div>
 
             <aside className="hero-panel" aria-label="Resumo profissional">
-              <span className="panel-label">Direcao atual</span>
+              <span className="panel-label">Direção atual</span>
               <strong>Backend como carreira principal</strong>
               <p>
-                Estou fortalecendo fundamentos de programacao, CRUD e
-                persistencia de dados para transformar essa base em experiencia
-                pratica com desenvolvimento backend.
+                Estou fortalecendo fundamentos de programação, CRUD e
+                persistência de dados para transformar essa base em experiência
+                prática com desenvolvimento backend.
               </p>
 
               <ul className="tag-list">
                 <li>Python</li>
                 <li>CRUD</li>
                 <li>JSON e CSV</li>
-                <li>Logica</li>
+                <li>Lógica</li>
               </ul>
             </aside>
           </div>
@@ -99,15 +99,15 @@ export default function Home() {
       <section id="sobre" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">Quem sou eu</p>
-          <h2>Uma apresentacao objetiva sobre minha jornada.</h2>
+          <h2>Uma apresentação objetiva sobre minha jornada.</h2>
         </div>
 
         <div className="two-column">
           <p className="body-copy">
             Estou construindo minha carreira com foco em desenvolvimento
-            backend. Meu interesse principal esta em entender como sistemas
-            funcionam por tras da interface: fluxo de dados, estrutura de APIs,
-            persistencia, regras de negocio e confiabilidade.
+            backend. Meu interesse principal está em entender como sistemas
+            funcionam por trás da interface: fluxo de dados, estrutura de APIs,
+            persistência, regras de negócio e confiabilidade.
           </p>
 
           <ul className="highlight-list">
@@ -120,8 +120,8 @@ export default function Home() {
 
       <section id="momento-atual" className="content-section">
         <div className="section-heading">
-          <p className="section-kicker">O que faco atualmente</p>
-          <h2>Estudo direcionado para construir repertorio tecnico util.</h2>
+          <p className="section-kicker">O que faço atualmente</p>
+          <h2>Estudo direcionado para construir repertório técnico útil.</h2>
         </div>
 
         <div className="focus-grid">
@@ -136,7 +136,7 @@ export default function Home() {
       <section id="projetos" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">Projetos em destaque</p>
-          <h2>Projetos pensados para mostrar raciocinio tecnico em backend.</h2>
+          <h2>Projetos pensados para mostrar raciocínio técnico em backend.</h2>
         </div>
 
         <div className="project-grid">
@@ -155,11 +155,11 @@ export default function Home() {
 
               <dl className="project-details">
                 <div>
-                  <dt>Desafio tecnico</dt>
+                  <dt>Desafio técnico</dt>
                   <dd>{project.technicalChallenge}</dd>
                 </div>
                 <div>
-                  <dt>Decisao principal</dt>
+                  <dt>Decisão principal</dt>
                   <dd>{project.decisions}</dd>
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export default function Home() {
       <section id="objetivos" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">O que estou buscando</p>
-          <h2>Meu objetivo e transformar estudo consistente em experiencia real.</h2>
+          <h2>Meu objetivo é transformar estudo consistente em experiência real.</h2>
         </div>
 
         <div className="goal-panel">
@@ -200,7 +200,7 @@ export default function Home() {
       <section id="contato" className="content-section contact-section">
         <div className="section-heading">
           <p className="section-kicker">Contato</p>
-          <h2>Links diretos para acompanhar minha evolucao profissional.</h2>
+          <h2>Links diretos para acompanhar minha evolução profissional.</h2>
         </div>
 
         <div className="contact-panel">
@@ -213,7 +213,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>{item.label}</span>
+                <span>Currículo</span>
                 <strong>{profile.resumeLabel}</strong>
               </a>
             ) : (

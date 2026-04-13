@@ -29,29 +29,29 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Bruno Souza",
-  resumeLabel: "Curriculo em PDF",
+  resumeLabel: "Currículo em PDF",
   role: "Em formação para atuar com backend",
   headline:
-    "Estou construindo minha base para atuar com backend por meio de projetos em Python focados em CRUD, persistencia de dados e organizacao de logica.",
+    "Estou construindo minha base para atuar com backend por meio de projetos em Python focados em CRUD, persistência de dados e organização de lógica.",
   intro:
-    "Este site funciona como meu curriculo vivo. Aqui apresento os projetos que venho construindo, o que eles me ensinaram sobre estruturacao de codigo e como estou usando esses fundamentos para evoluir em direcao ao backend.",
+    "Este site funciona como meu currículo vivo. Aqui apresento os projetos que venho construindo, o que eles me ensinaram sobre estruturação de código e como estou usando esses fundamentos para evoluir em direção ao backend.",
   currentFocus: [
-    "Pratica de CRUD, menus interativos e fluxos de cadastro, consulta, edicao e exclusao.",
-    "Persistencia local com arquivos JSON e CSV para entender leitura, escrita e consistencia de dados.",
-    "Organizacao de funcoes, validacoes e tratamento de erros em aplicacoes de terminal.",
-    "Evolucao gradual dos fundamentos de Python em direcao a APIs, banco de dados e sistemas backend.",
+    "Prática de CRUD, menus interativos e fluxos de cadastro, consulta, edição e exclusão.",
+    "Persistência local com arquivos JSON e CSV para entender leitura, escrita e consistência de dados.",
+    "Organização de funções, validações e tratamento de erros em aplicações de terminal.",
+    "Evolução gradual dos fundamentos de Python em direção a APIs, banco de dados e sistemas backend.",
   ],
   strengths: [
-    "Interesse em entender como os dados sao cadastrados, consultados, atualizados e persistidos.",
-    "Busca por clareza na organizacao do codigo antes de aumentar complexidade.",
-    "Aprendizado constante com projetos pequenos, iterativos e publicaveis.",
+    "Interesse em entender como os dados são cadastrados, consultados, atualizados e persistidos.",
+    "Busca por clareza na organização do código antes de aumentar complexidade.",
+    "Aprendizado constante com projetos pequenos, iterativos e publicáveis.",
   ],
   searchFor:
     "Busco minha primeira oportunidade para evoluir de projetos fundamentais em Python para o desenvolvimento backend em contexto profissional, aprendendo com sistemas reais e pessoas mais experientes.",
   careerGoals: [
-    "Transformar minha base atual em experiencia pratica com APIs, banco de dados e aplicacoes backend.",
-    "Trabalhar em times que valorizem codigo limpo, aprendizado continuo e evolucao consistente.",
-    "Ganhar experiencia real com sistemas que exijam regras de negocio, manutencao e responsabilidade tecnica crescente.",
+    "Transformar minha base atual em experiência prática com APIs, banco de dados e aplicações backend.",
+    "Trabalhar em times que valorizem código limpo, aprendizado contínuo e evolução consistente.",
+    "Ganhar experiência real com sistemas que exijam regras de negócio, manutenção e responsabilidade técnica crescente.",
   ],
   contact: [
     { label: "GitHub", href: "https://github.com/souzabrunu" },
@@ -79,29 +79,29 @@ export const profile: Profile = {
     {
       name: "Sistema de Estoque de Produtos em Python",
       description:
-        "Aplicacao de terminal para cadastro e controle de estoque, com persistencia em JSON e operacoes para adicionar, remover, editar e consultar produtos.",
+        "Aplicação de terminal para cadastro e controle de estoque, com persistência em JSON e operações para adicionar, remover, editar e consultar produtos.",
       stack: ["Python", "JSON", "Colorama"],
       technicalChallenge:
-        "Manter os dados do estoque persistidos entre execucoes e tratar entradas invalidas sem quebrar o fluxo do menu interativo.",
+        "Manter os dados do estoque persistidos entre execuções e tratar entradas inválidas sem quebrar o fluxo do menu interativo.",
       decisions:
-        "Uso de funcoes separadas para cada operacao, arquivo JSON para armazenamento local e validacoes basicas para leitura e escrita seguras.",
+        "Uso de funções separadas para cada operação, arquivo JSON para armazenamento local e validações básicas para leitura e escrita seguras.",
       learning:
-        "Evolui em organizacao de logica, manipulacao de arquivos, tratamento de excecoes e estrutura de um CRUD simples em aplicacao de terminal.",
+        "Evoluí em organização de lógica, manipulação de arquivos, tratamento de exceções e estrutura de um CRUD simples em aplicação de terminal.",
       links: [
         { label: "GitHub", href: "https://github.com/souzabrunu/estoque-produtos" }
       ],
     },
     {
-      name: "Gerenciador de Clientes para Salao",
+      name: "Gerenciador de Clientes para Salão",
       description:
-        "Aplicacao de terminal em Python para cadastrar, consultar e excluir clientes, mantendo os dados persistidos em arquivo CSV.",
+        "Aplicação de terminal em Python para cadastrar, consultar e excluir clientes, mantendo os dados persistidos em arquivo CSV.",
       stack: ["Python", "CSV"],
       technicalChallenge:
-        "Organizar operacoes de cadastro e busca com persistencia local, garantindo leitura e regravacao consistente do arquivo de clientes.",
+        "Organizar operações de cadastro e busca com persistência local, garantindo leitura e regravação consistente do arquivo de clientes.",
       decisions:
-        "Uso de csv.DictWriter e csv.DictReader para padronizar os campos, com inicializacao automatica do arquivo e exclusao feita pela reconstrucao da base.",
+        "Uso de csv.DictWriter e csv.DictReader para padronizar os campos, com inicialização automática do arquivo e exclusão feita pela reconstrução da base.",
       learning:
-        "Pratiquei manipulacao de arquivos, estruturacao de CRUD simples, buscas por filtros e tratamento de erros em aplicacao de terminal.",
+        "Pratiquei manipulação de arquivos, estruturação de CRUD simples, buscas por filtros e tratamento de erros em aplicação de terminal.",
       links: [
         { label: "GitHub", href: "https://github.com/souzabrunu/Gerenciador-Clientes" }
       ],
