@@ -62,7 +62,7 @@ export const profile: Profile = {
   projects: [
 
     {
-      name: "Calculadora Interativa em Python",
+      name: "Calculadora Interativa Python",
       description:
         "Aplicação de terminal com múltiplas funcionalidades, incluindo operações matemáticas, cálculo de IMC, desconto e jogo de adivinhação.",
       stack: ["Python"],
