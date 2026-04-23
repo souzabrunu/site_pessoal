@@ -47,7 +47,7 @@ export type Profile = {
 export const profile: Profile = {
   name: "Bruno Souza",
   resumeLabel: "Currículo em PDF",
-  role: "Construindo minha base para atuar com desenvolvimento backend",
+  role: "Construindo minha base\npara atuar com\nbackend",
   headline:
     "Desenvolvo projetos em Python para fortalecer lógica, CRUD, persistência de dados e organização de código, construindo uma base sólida para trabalhar com backend.",
   intro:
