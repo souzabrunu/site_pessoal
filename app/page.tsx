@@ -5,6 +5,7 @@ const sections = [
   { id: "sobre", label: "Sobre" },
   { id: "momento-atual", label: "Momento Atual" },
   { id: "projetos", label: "Projetos" },
+  { id: "certificacoes", label: "Certificações" },
   { id: "objetivos", label: "Objetivos" },
   { id: "contato", label: "Contato" },
 ];
@@ -37,6 +38,20 @@ export default function Home() {
             <p className="headline">{profile.headline}</p>
             <p className="intro">{profile.intro}</p>
 
+            <div className="quick-facts" aria-label="Atalhos rápidos">
+              {profile.quickFacts.map((item) => (
+                <a
+                  key={item.label}
+                  className="quick-fact"
+                  href={item.href}
+                  target={item.href.endsWith(".pdf") ? "_blank" : undefined}
+                  rel={item.href.endsWith(".pdf") ? "noreferrer" : undefined}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+
             <div className="hero-details">
               <p className="hero-details-title">O que estou fortalecendo agora</p>
               <ul className="hero-details-list">
@@ -49,6 +64,9 @@ export default function Home() {
             <div className="hero-actions">
               <a className="button button-primary" href="#projetos">
                 Ver projetos
+              </a>
+              <a className="button button-secondary" href="/curriculum.pdf" target="_blank" rel="noreferrer">
+                Ver currículo
               </a>
               <a className="button button-secondary" href="#contato">
                 Entrar em contato
@@ -180,6 +198,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="certificacoes" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Certificações e Aprendizado</p>
+          <h2>Formações que complementam meus projetos e reforçam minha base técnica.</h2>
+        </div>
+
+        <div className="certificate-grid">
+          {profile.certificates.map((certificate) => (
+            <article key={certificate.name} className="certificate-card">
+              <div className="certificate-header">
+                <div>
+                  <p className="certificate-issuer">{certificate.issuer}</p>
+                  <h3>{certificate.name}</h3>
+                </div>
+
+                {(certificate.date || certificate.duration) && (
+                  <div className="certificate-meta" aria-label="Informações do certificado">
+                    {certificate.date ? <span>{certificate.date}</span> : null}
+                    {certificate.duration ? <span>{certificate.duration}</span> : null}
+                  </div>
+                )}
+              </div>
+
+              <p className="certificate-summary">{certificate.summary}</p>
+
+              {certificate.link ? (
+                <div className="certificate-link">
+                  <a href={certificate.link} target="_blank" rel="noreferrer">
+                    Ver certificado
+                  </a>
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="objetivos" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">O que estou buscando</p>
@@ -205,7 +260,7 @@ export default function Home() {
 
         <div className="contact-panel">
           {profile.contact.map((item) => (
-            item.label === "Curriculo" ? (
+            item.label === "Currículo" ? (
               <a
                 key={item.href}
                 className="contact-link"
@@ -214,7 +269,7 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <span>Currículo</span>
-                <strong>{profile.resumeLabel}</strong>
+                <strong>{item.value}</strong>
               </a>
             ) : (
             <a
@@ -225,7 +280,7 @@ export default function Home() {
               rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
             >
               <span>{item.label}</span>
-              <strong>{item.href.replace("mailto:", "")}</strong>
+              <strong>{item.value}</strong>
             </a>
             )
           ))}

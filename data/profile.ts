@@ -3,6 +3,12 @@ export type ProjectLink = {
   href: string;
 };
 
+export type ContactItem = {
+  label: string;
+  href: string;
+  value: string;
+};
+
 export type Project = {
   name: string;
   description: string;
@@ -13,51 +19,97 @@ export type Project = {
   links: ProjectLink[];
 };
 
+export type Certificate = {
+  name: string;
+  issuer: string;
+  date?: string;
+  duration?: string;
+  summary: string;
+  link?: string;
+};
+
 export type Profile = {
   name: string;
   resumeLabel: string;
   role: string;
   headline: string;
   intro: string;
+  quickFacts: ProjectLink[];
   currentFocus: string[];
   strengths: string[];
   searchFor: string;
   careerGoals: string[];
-  contact: ProjectLink[];
+  contact: ContactItem[];
   projects: Project[];
+  certificates: Certificate[];
 };
 
 export const profile: Profile = {
   name: "Bruno Souza",
   resumeLabel: "Currículo em PDF",
-  role: "Em formação para atuar com backend",
+  role: "Construindo minha base para atuar com desenvolvimento backend",
   headline:
-    "Estou construindo minha base para atuar com backend por meio de projetos em Python focados em CRUD, persistência de dados e organização de lógica.",
+    "Desenvolvo projetos em Python para fortalecer lógica, CRUD, persistência de dados e organização de código, construindo uma base sólida para trabalhar com backend.",
   intro:
-    "Este site funciona como meu currículo vivo. Aqui apresento os projetos que venho construindo, o que eles me ensinaram sobre estruturação de código e como estou usando esses fundamentos para evoluir em direção ao backend.",
+    "Este site funciona como meu currículo vivo. Aqui reúno projetos, certificados e objetivos profissionais para mostrar como estou transformando estudo consistente em repertório técnico prático, com foco em backend.",
+  quickFacts: [
+    { label: "Projetos", href: "#projetos" },
+    { label: "Certificações", href: "#certificacoes" },
+    { label: "Currículo", href: "/curriculum.pdf" },
+  ],
   currentFocus: [
-    "Prática de CRUD, menus interativos e fluxos de cadastro, consulta, edição e exclusão.",
-    "Persistência local com arquivos JSON e CSV para entender leitura, escrita e consistência de dados.",
-    "Organização de funções, validações e tratamento de erros em aplicações de terminal.",
-    "Evolução gradual dos fundamentos de Python em direção a APIs, banco de dados e sistemas backend.",
+    "Prática de CRUD com fluxos de cadastro, consulta, edição e exclusão em aplicações de terminal.",
+    "Persistência local com JSON e CSV para reforçar leitura, escrita e consistência de dados.",
+    "Organização de funções, validações e tratamento de erros para escrever código mais claro e previsível.",
+    "Evolução dos fundamentos de Python em direção a APIs, banco de dados e aplicações backend.",
   ],
   strengths: [
-    "Interesse em entender como os dados são cadastrados, consultados, atualizados e persistidos.",
-    "Busca por clareza na organização do código antes de aumentar complexidade.",
-    "Aprendizado constante com projetos pequenos, iterativos e publicáveis.",
+    "Interesse genuíno em entender o ciclo completo dos dados: cadastro, consulta, atualização e persistência.",
+    "Busca por clareza na estrutura do código antes de aumentar a complexidade da solução.",
+    "Aprendizado constante por meio de projetos pequenos, iterativos e publicáveis.",
   ],
   searchFor:
-    "Busco minha primeira oportunidade para evoluir de projetos fundamentais em Python para o desenvolvimento backend em contexto profissional, aprendendo com sistemas reais e pessoas mais experientes.",
+    "Busco minha primeira oportunidade para evoluir de projetos fundamentais em Python para desenvolvimento backend em contexto profissional, aprendendo com sistemas reais, boas práticas e pessoas mais experientes.",
   careerGoals: [
     "Transformar minha base atual em experiência prática com APIs, banco de dados e aplicações backend.",
-    "Trabalhar em times que valorizem código limpo, aprendizado contínuo e evolução consistente.",
-    "Ganhar experiência real com sistemas que exijam regras de negócio, manutenção e responsabilidade técnica crescente.",
+    "Atuar em times que valorizem código limpo, aprendizado contínuo e evolução consistente.",
+    "Ganhar experiência com sistemas reais que exijam regras de negócio, manutenção e responsabilidade técnica crescente.",
   ],
   contact: [
-    { label: "GitHub", href: "https://github.com/souzabrunu" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/bruno-souza-9250a4356/" },
-    { label: "Curriculo", href: "/curriculum.pdf" },
-    { label: "Email", href: "mailto:souzabrunu@yahoo.com" },
+    { label: "GitHub", href: "https://github.com/souzabrunu", value: "github.com/souzabrunu" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/bruno-souza-9250a4356/",
+      value: "linkedin.com/in/bruno-souza-9250a4356",
+    },
+    { label: "Currículo", href: "/curriculum.pdf", value: "Versão atualizada em PDF" },
+    { label: "Email", href: "mailto:souzabrunu@yahoo.com", value: "souzabrunu@yahoo.com" },
+  ],
+  certificates: [
+    {
+      name: "Git e GitHub para Iniciantes com Projetos Reais",
+      issuer: "Udemy",
+      duration: "3h",
+      summary:
+        "Formação voltada ao uso prático de Git e GitHub em projetos reais, reforçando versionamento de código, organização de histórico e fluxo básico de colaboração.",
+      link: "https://ude.my/UC-2175b7e5-9001-4dcd-a10d-4b61cf0b5099",
+    },
+    {
+      name: "AWS Cloud Practitioner PT",
+      issuer: "AWS",
+      duration: "12h",
+      summary:
+        "Trilha de aprendizagem focada em fundamentos de computação em nuvem, com visão inicial sobre serviços da AWS, conceitos de cloud e base para evolução em infraestrutura e arquitetura.",
+      link: "/aws-cloud-practitioner-pt.pdf",
+    },
+    {
+      name: "Cloud+Fundamentals",
+      issuer: "Fundamentos de nuvem",
+      duration: "3h11",
+      summary:
+        "Formação complementar voltada a fundamentos de computação em nuvem, reforçando conceitos essenciais de cloud e ampliando minha base para estudos em infraestrutura e serviços online.",
+      link: "/cloud-fundamentals.pdf",
+    },
   ],
   projects: [
 
