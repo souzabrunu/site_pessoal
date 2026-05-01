@@ -197,7 +197,7 @@ export default function Home() {
                 </dl>
 
                 <div className="project-links">
-                  <span>{primaryLink?.label}</span>
+                  <span className={primaryLink?.disabled ? "project-link-muted" : undefined}>{primaryLink?.label}</span>
                 </div>
               </article>
             );

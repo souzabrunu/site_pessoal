@@ -489,14 +489,12 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(245, 158, 11, 0.08) 35%,
-    rgba(125, 211, 252, 0.14) 50%,
-    rgba(245, 158, 11, 0.08) 65%,
-    transparent 100%
-  );
+  background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(245, 158, 11, 0.08) 35%,
+      rgba(125, 211, 252, 0.14) 50%,
+      rgba(245, 158, 11, 0.08) 65%,
+      transparent 100%);
   transform: translateX(-120%);
   transition: transform 420ms ease;
   pointer-events: none;
@@ -578,7 +576,7 @@ a {
   cursor: default;
 }
 
-.project-card-link article {
+.project-card article {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -633,12 +631,18 @@ a {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: auto;
+  padding-top: 10px;
 }
 
 .project-links a,
 .project-links span {
   color: #d8e6f5;
   font-weight: 700;
+}
+
+.project-links .project-link-muted {
+  color: #facc15;
+  font-weight: 800;
 }
 
 .demo-shell {
@@ -1055,6 +1059,7 @@ a {
 }
 
 @media (max-width: 960px) {
+
   .hero-content,
   .two-column,
   .demo-intro,
