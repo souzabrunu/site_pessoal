@@ -1,6 +1,7 @@
 export type ProjectLink = {
   label: string;
   href: string;
+  disabled?: boolean;
 };
 
 export type ContactItem = {
@@ -28,6 +29,17 @@ export type Certificate = {
   link?: string;
 };
 
+export type Technology = {
+  name: string;
+  context: string;
+};
+
+export type TimelineItem = {
+  title: string;
+  period: string;
+  description: string;
+};
+
 export type Profile = {
   name: string;
   resumeLabel: string;
@@ -40,6 +52,8 @@ export type Profile = {
   searchFor: string;
   careerGoals: string[];
   contact: ContactItem[];
+  technologies: Technology[];
+  timeline: TimelineItem[];
   projects: Project[];
   certificates: Certificate[];
 };
@@ -49,9 +63,9 @@ export const profile: Profile = {
   resumeLabel: "Currículo em PDF",
   role: "Construindo minha base\npara atuar com\nbackend",
   headline:
-    "Desenvolvo projetos em Python para fortalecer lógica, CRUD, persistência de dados e organização de código, construindo uma base sólida para trabalhar com backend.",
+    "Desenvolvo projetos em Python para fortalecer lógica, CRUD, persistência de dados e organização de código, construindo uma base sólida para backend.",
   intro:
-    "Este site funciona como meu currículo vivo. Aqui reúno projetos, certificados e objetivos profissionais para mostrar como estou transformando estudo consistente em repertório técnico prático, com foco em backend.",
+    "Este site funciona como meu currículo vivo. Aqui reúno projetos, certificados e objetivos profissionais para mostrar como estou transformando estudo consistente em repertório técnico prático.",
   quickFacts: [
     { label: "Projetos", href: "#projetos" },
     { label: "Certificações", href: "#certificacoes" },
@@ -85,6 +99,51 @@ export const profile: Profile = {
     { label: "Currículo", href: "/cur.pdf", value: "Versão atualizada em PDF" },
     { label: "Email", href: "mailto:souzabrunu@yahoo.com", value: "souzabrunu@yahoo.com" },
   ],
+  technologies: [
+    {
+      name: "Python",
+      context: "Base principal dos meus projetos e da minha evolução em lógica e estruturação de código.",
+    },
+    {
+      name: "Git e GitHub",
+      context: "Versionamento dos projetos, organização de histórico e publicação do portfólio.",
+    },
+    {
+      name: "JSON e CSV",
+      context: "Persistência local de dados para praticar leitura, escrita e consistência entre execuções.",
+    },
+    {
+      name: "CRUD",
+      context: "Fluxos de cadastro, consulta, edição e exclusão aplicados em projetos com regras de negócio simples.",
+    },
+  ],
+  timeline: [
+    {
+      title: "Primeiros projetos CRUD",
+      period: "Projetos autorais",
+      description: "Passei a construir soluções com cadastro, consulta, edição e exclusão para entender melhor fluxo de dados.",
+    },
+    {
+      title: "Persistência com JSON e CSV",
+      period: "Evolução técnica",
+      description: "Adicionei armazenamento local aos projetos para praticar leitura, escrita e consistência de informações.",
+    },
+    {
+      title: "Publicação no GitHub",
+      period: "Portfólio em construção",
+      description: "Organizei os projetos para publicação e passei a usar o GitHub como parte da minha apresentação profissional.",
+    },
+    {
+      title: "Certificações complementares",
+      period: "Aprendizado complementar",
+      description: "Reforcei minha base com estudos em versionamento e fundamentos de computação em nuvem.",
+    },
+    {
+      title: "Foco atual em backend",
+      period: "Próximo passo profissional",
+      description: "Meu objetivo agora é evoluir de projetos fundamentais em Python para APIs, banco de dados e sistemas backend reais.",
+    },
+  ],
   certificates: [
     {
       name: "Git e GitHub para Iniciantes com Projetos Reais",
@@ -99,7 +158,7 @@ export const profile: Profile = {
       issuer: "AWS",
       duration: "12h",
       summary:
-        "Trilha de aprendizagem focada em fundamentos de computação em nuvem, com visão inicial sobre serviços da AWS, conceitos de cloud e base para evolução em infraestrutura e arquitetura.",
+        "Trilha de aprendizagem focada em fundamentos de computação em nuvem, com visão inicial sobre serviços da AWS e base para evolução em infraestrutura e arquitetura.",
       link: "/aws-cloud-practitioner-pt.pdf",
     },
     {
@@ -107,7 +166,7 @@ export const profile: Profile = {
       issuer: "Fundamentos de nuvem",
       duration: "3h11",
       summary:
-        "Formação complementar voltada a fundamentos de computação em nuvem, reforçando conceitos essenciais de cloud e ampliando minha base para estudos em infraestrutura e serviços online.",
+        "Formação complementar voltada a fundamentos de computação em nuvem, reforçando conceitos essenciais de cloud e ampliando minha base para estudos em infraestrutura e serviços.",
       link: "/cloud-fundamentals.pdf",
     },
   ],
@@ -116,14 +175,14 @@ export const profile: Profile = {
     {
       name: "Calculadora Interativa Python",
       description:
-        "Aplicação de terminal com múltiplas funcionalidades, incluindo operações matemáticas, cálculo de IMC, desconto e jogo de adivinhação.",
+        "Aplicação de terminal em Python criada para reunir múltiplos fluxos de interação, como operações matemáticas, cálculo de IMC, desconto e jogo de adivinhação.",
       stack: ["Python"],
       technicalChallenge:
-        "Organizar múltiplas funcionalidades com menu interativo e tratamento de erros.",
+        "Organizar múltiplas funcionalidades em um fluxo único, com navegação por menu e tratamento de entradas inválidas.",
       decisions:
-        "Uso de funções separadas e um controlador central para gerenciar o fluxo do programa.",
+        "Separei cada funcionalidade em funções independentes e mantive um controlador central para coordenar a navegação do programa.",
       learning:
-        "Desenvolvi lógica de programação, tratamento de exceções e organização de código.",
+        "Fortaleci lógica de programação, tratamento de exceções e organização de código em uma aplicação com múltiplos fluxos.",
       links: [
         { label: "GitHub", href: "https://github.com/souzabrunu/Calculadora_Desconto/tree/main" }
       ],
@@ -131,29 +190,29 @@ export const profile: Profile = {
     {
       name: "Sistema de Estoque de Produtos em Python",
       description:
-        "Aplicação de terminal para cadastro e controle de estoque, com persistência em JSON e operações para adicionar, remover, editar e consultar produtos.",
+        "Aplicação de terminal voltada ao controle de estoque, com cadastro, consulta, edição e remoção de produtos, mantendo os dados persistidos em JSON.",
       stack: ["Python", "JSON", "Colorama"],
       technicalChallenge:
-        "Manter os dados do estoque persistidos entre execuções e tratar entradas inválidas sem quebrar o fluxo do menu interativo.",
+        "Garantir persistência entre execuções e tratar entradas inválidas sem comprometer a continuidade do fluxo principal.",
       decisions:
-        "Uso de funções separadas para cada operação, arquivo JSON para armazenamento local e validações básicas para leitura e escrita seguras.",
+        "Estruturei operações separadas para cada ação do CRUD, usando JSON como armazenamento local e validações para leitura e escrita mais seguras.",
       learning:
-        "Evoluí em organização de lógica, manipulação de arquivos, tratamento de exceções e estrutura de um CRUD simples em aplicação de terminal.",
+        "Evoluí em organização de lógica, manipulação de arquivos, validações e estruturação de um CRUD mais próximo de um contexto real.",
       links: [
-        { label: "GitHub", href: "https://github.com/souzabrunu/estoque-produtos" }
+        { label: "Repositório em atualização", href: "#", disabled: true }
       ],
     },
     {
       name: "Gerenciador de Clientes para Salão",
       description:
-        "Aplicação de terminal em Python para cadastrar, consultar e excluir clientes, mantendo os dados persistidos em arquivo CSV.",
+        "Aplicação de terminal em Python para cadastro, consulta e exclusão de clientes, com persistência em arquivo CSV.",
       stack: ["Python", "CSV"],
       technicalChallenge:
-        "Organizar operações de cadastro e busca com persistência local, garantindo leitura e regravação consistente do arquivo de clientes.",
+        "Organizar operações de cadastro e busca com persistência local, mantendo leitura e regravação consistentes da base de clientes.",
       decisions:
-        "Uso de csv.DictWriter e csv.DictReader para padronizar os campos, com inicialização automática do arquivo e exclusão feita pela reconstrução da base.",
+        "Usei csv.DictWriter e csv.DictReader para padronizar os dados, com criação automática do arquivo e exclusão feita pela reconstrução da base.",
       learning:
-        "Pratiquei manipulação de arquivos, estruturação de CRUD simples, buscas por filtros e tratamento de erros em aplicação de terminal.",
+        "Pratiquei manipulação de arquivos, estruturação de CRUD, buscas por filtros e tratamento de erros em uma aplicação orientada a dados.",
       links: [
         { label: "GitHub", href: "https://github.com/souzabrunu/Gerenciador-Clientes" }
       ],

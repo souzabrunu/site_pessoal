@@ -1,10 +1,14 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { StockDemo } from "@/app/components/stock-demo";
 
 const sections = [
   { id: "sobre", label: "Sobre" },
   { id: "momento-atual", label: "Momento Atual" },
   { id: "projetos", label: "Projetos" },
+  { id: "demonstracao", label: "Demonstração" },
+  { id: "tecnologias", label: "Tecnologias" },
+  { id: "evolucao", label: "Evolução" },
   { id: "certificacoes", label: "Certificações" },
   { id: "objetivos", label: "Objetivos" },
   { id: "contato", label: "Contato" },
@@ -106,8 +110,10 @@ export default function Home() {
               <ul className="tag-list">
                 <li>Python</li>
                 <li>CRUD</li>
-                <li>JSON e CSV</li>
-                <li>Lógica</li>
+                <li>Persistência de dados</li>
+                <li>APIs REST</li>
+                <li>Banco de dados</li>
+                <li>Git e GitHub</li>
               </ul>
             </aside>
           </div>
@@ -117,7 +123,7 @@ export default function Home() {
       <section id="sobre" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">Quem sou eu</p>
-          <h2>Uma apresentação objetiva sobre minha jornada.</h2>
+          <h2>Uma apresentação objetiva da minha jornada até o foco em backend.</h2>
         </div>
 
         <div className="two-column">
@@ -139,7 +145,7 @@ export default function Home() {
       <section id="momento-atual" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">O que faço atualmente</p>
-          <h2>Estudo direcionado para construir repertório técnico útil.</h2>
+          <h2>Estudo direcionado para construir repertório técnico com aplicação prática.</h2>
         </div>
 
         <div className="focus-grid">
@@ -154,45 +160,104 @@ export default function Home() {
       <section id="projetos" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">Projetos em destaque</p>
-          <h2>Projetos pensados para mostrar raciocínio técnico em backend.</h2>
+          <h2>Projetos escolhidos para mostrar raciocínio técnico, estrutura e evolução prática.</h2>
         </div>
 
         <div className="project-grid">
-          {profile.projects.map((project) => (
-            <article key={project.name} className="project-card">
-              <div className="project-header">
-                <h3>{project.name}</h3>
-                <div className="stack-list" aria-label="Tecnologias usadas">
-                  {project.stack.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+          {profile.projects.map((project) => {
+            const primaryLink = project.links[0];
+            const isClickable = primaryLink && !primaryLink.disabled;
+
+            const content = (
+              <article>
+                <div className="project-header">
+                  <h3>{project.name}</h3>
+                  <div className="stack-list" aria-label="Tecnologias usadas">
+                    {project.stack.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
                 </div>
+
+                <p className="project-description">{project.description}</p>
+
+                <dl className="project-details">
+                  <div>
+                    <dt>Desafio técnico</dt>
+                    <dd>{project.technicalChallenge}</dd>
+                  </div>
+                  <div>
+                    <dt>Decisão principal</dt>
+                    <dd>{project.decisions}</dd>
+                  </div>
+                  <div>
+                    <dt>Aprendizado</dt>
+                    <dd>{project.learning}</dd>
+                  </div>
+                </dl>
+
+                <div className="project-links">
+                  <span>{primaryLink?.label}</span>
+                </div>
+              </article>
+            );
+
+            return isClickable ? (
+              <a
+                key={project.name}
+                className="project-card project-card-link"
+                href={primaryLink.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {content}
+              </a>
+            ) : (
+              <div key={project.name} className="project-card project-card-static">
+                {content}
               </div>
+            );
+          })}
+        </div>
+      </section>
 
-              <p className="project-description">{project.description}</p>
+      <section id="demonstracao" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Demonstração prática</p>
+          <h2>Uma experiência curta para explorar a lógica de um projeto no próprio site.</h2>
+        </div>
 
-              <dl className="project-details">
-                <div>
-                  <dt>Desafio técnico</dt>
-                  <dd>{project.technicalChallenge}</dd>
-                </div>
-                <div>
-                  <dt>Decisão principal</dt>
-                  <dd>{project.decisions}</dd>
-                </div>
-                <div>
-                  <dt>Aprendizado</dt>
-                  <dd>{project.learning}</dd>
-                </div>
-              </dl>
+        <StockDemo />
+      </section>
 
-              <div className="project-links">
-                {project.links.map((link) => (
-                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+      <section id="tecnologias" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Tecnologias em prática</p>
+          <h2>Ferramentas que aparecem com frequência nos projetos que venho construindo.</h2>
+        </div>
+
+        <div className="technology-grid">
+          {profile.technologies.map((technology) => (
+            <article key={technology.name} className="technology-card">
+              <h3>{technology.name}</h3>
+              <p>{technology.context}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="evolucao" className="content-section">
+        <div className="section-heading">
+          <p className="section-kicker">Linha do tempo</p>
+          <h2>Uma leitura rápida da minha evolução até o foco atual em backend.</h2>
+        </div>
+
+        <div className="timeline">
+          {profile.timeline.map((item) => (
+            <article key={item.title} className="timeline-item">
+              <span className="timeline-period">{item.period}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </article>
           ))}
         </div>
@@ -201,7 +266,7 @@ export default function Home() {
       <section id="certificacoes" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">Certificações e Aprendizado</p>
-          <h2>Formações que complementam meus projetos e reforçam minha base técnica.</h2>
+          <h2>Formações que complementam os projetos e reforçam minha base técnica.</h2>
         </div>
 
         <div className="certificate-grid">
@@ -238,7 +303,7 @@ export default function Home() {
       <section id="objetivos" className="content-section">
         <div className="section-heading">
           <p className="section-kicker">O que estou buscando</p>
-          <h2>Meu objetivo é transformar estudo consistente em experiência real.</h2>
+          <h2>Meu objetivo é transformar estudo consistente em experiência prática.</h2>
         </div>
 
         <div className="goal-panel">
@@ -255,7 +320,7 @@ export default function Home() {
       <section id="contato" className="content-section contact-section">
         <div className="section-heading">
           <p className="section-kicker">Contato</p>
-          <h2>Links diretos para acompanhar minha evolução profissional.</h2>
+          <h2>Links diretos para acompanhar minha trajetória e entrar em contato.</h2>
         </div>
 
         <div className="contact-panel">
