@@ -65,7 +65,7 @@ export default function Home() {
               <a className="button button-primary" href="#projetos">
                 Ver projetos
               </a>
-              <a className="button button-secondary" href="/curriculum.pdf" target="_blank" rel="noreferrer">
+              <a className="button button-secondary" href="/cur.pdf" target="_blank" rel="noreferrer">
                 Ver currículo
               </a>
               <a className="button button-secondary" href="#contato">
@@ -272,16 +272,16 @@ export default function Home() {
                 <strong>{item.value}</strong>
               </a>
             ) : (
-            <a
-              key={item.href}
-              className="contact-link"
-              href={item.href}
-              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
-            >
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </a>
+              <a
+                key={item.href}
+                className="contact-link"
+                href={item.href}
+                target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
+              >
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </a>
             )
           ))}
         </div>

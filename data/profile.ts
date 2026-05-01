@@ -55,7 +55,7 @@ export const profile: Profile = {
   quickFacts: [
     { label: "Projetos", href: "#projetos" },
     { label: "Certificações", href: "#certificacoes" },
-    { label: "Currículo", href: "/curriculum.pdf" },
+    { label: "Currículo", href: "/cur.pdf" },
   ],
   currentFocus: [
     "Prática de CRUD com fluxos de cadastro, consulta, edição e exclusão em aplicações de terminal.",
@@ -79,10 +79,10 @@ export const profile: Profile = {
     { label: "GitHub", href: "https://github.com/souzabrunu", value: "github.com/souzabrunu" },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/bruno-souza-9250a4356/",
+      href: "https://www.linkedin.com/in/bruno-souza-ti/?skipRedirect=true",
       value: "linkedin.com/in/bruno-souza-9250a4356",
     },
-    { label: "Currículo", href: "/curriculum.pdf", value: "Versão atualizada em PDF" },
+    { label: "Currículo", href: "/cur.pdf", value: "Versão atualizada em PDF" },
     { label: "Email", href: "mailto:souzabrunu@yahoo.com", value: "souzabrunu@yahoo.com" },
   ],
   certificates: [
