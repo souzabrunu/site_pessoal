@@ -199,7 +199,7 @@ export const profile: Profile = {
       learning:
         "Evoluí em organização de lógica, manipulação de arquivos, validações e estruturação de um CRUD mais próximo de um contexto real.",
       links: [
-        { label: "Repositório em atualização", href: "#", disabled: true }
+        { label: "GitHub", href: "https://github.com/souzabrunu/estoque_produtos" }
       ],
     },
     {
