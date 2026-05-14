@@ -12,6 +12,7 @@ export type ContactItem = {
 
 export type Project = {
   name: string;
+  period: string;
   description: string;
   stack: string[];
   technicalChallenge: string;
@@ -174,6 +175,7 @@ export const profile: Profile = {
 
     {
       name: "Calculadora Interativa Python",
+      period: "2025",
       description:
         "Aplicação de terminal em Python criada para reunir múltiplos fluxos de interação, como operações matemáticas, cálculo de IMC, desconto e jogo de adivinhação.",
       stack: ["Python"],
@@ -184,11 +186,12 @@ export const profile: Profile = {
       learning:
         "Fortaleci lógica de programação, tratamento de exceções e organização de código em uma aplicação com múltiplos fluxos.",
       links: [
-        { label: "GitHub", href: "https://github.com/souzabrunu/Calculadora_Desconto/tree/main" }
+        { label: "GitHub", href: "https://github.com/souzabrunu/Calculadora_Desconto" }
       ],
     },
     {
       name: "Sistema de Estoque de Produtos em Python",
+      period: "2025",
       description:
         "Aplicação de terminal voltada ao controle de estoque, com cadastro, consulta, edição e remoção de produtos, mantendo os dados persistidos em JSON.",
       stack: ["Python", "JSON", "Colorama"],
@@ -204,6 +207,7 @@ export const profile: Profile = {
     },
     {
       name: "Gerenciador de Clientes para Salão",
+      period: "2025",
       description:
         "Aplicação de terminal em Python para cadastro, consulta e exclusão de clientes, com persistência em arquivo CSV.",
       stack: ["Python", "CSV"],
@@ -214,7 +218,7 @@ export const profile: Profile = {
       learning:
         "Pratiquei manipulação de arquivos, estruturação de CRUD, buscas por filtros e tratamento de erros em uma aplicação orientada a dados.",
       links: [
-        { label: "GitHub", href: "https://github.com/souzabrunu/Gerenciador-Clientes" }
+        { label: "GitHub", href: "https://github.com/souzabrunu/gerenciador_clientes" }
       ],
     }
   ]

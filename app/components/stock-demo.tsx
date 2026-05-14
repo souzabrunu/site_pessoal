@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 
 type DemoProduct = {
@@ -34,11 +35,18 @@ function getStatusLabel(product: DemoProduct) {
 }
 
 export function StockDemo() {
+  const [products, setProducts] = useState(demoProducts);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<(typeof filters)[number]["value"]>("all");
+  const [form, setForm] = useState({
+    name: "",
+    category: "",
+    quantity: "1",
+    minimum: "1",
+  });
 
   const filteredProducts = useMemo(() => {
-    return demoProducts.filter((product) => {
+    return products.filter((product) => {
       const matchesQuery =
         product.name.toLowerCase().includes(query.toLowerCase()) ||
         product.category.toLowerCase().includes(query.toLowerCase());
@@ -48,15 +56,44 @@ export function StockDemo() {
 
       return matchesQuery && matchesFilter;
     });
-  }, [filter, query]);
+  }, [filter, products, query]);
 
   const summary = useMemo(() => {
-    const total = demoProducts.length;
-    const attention = demoProducts.filter((product) => getStatus(product) === "attention").length;
+    const total = products.length;
+    const attention = products.filter((product) => getStatus(product) === "attention").length;
     const healthy = total - attention;
 
     return { total, attention, healthy };
-  }, []);
+  }, [products]);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const name = form.name.trim();
+    const category = form.category.trim();
+    const quantity = Number(form.quantity);
+    const minimum = Number(form.minimum);
+
+    if (!name || !category || Number.isNaN(quantity) || Number.isNaN(minimum)) {
+      return;
+    }
+
+    const nextId = Math.max(...products.map((product) => product.id)) + 1;
+
+    setProducts((currentProducts) => [
+      {
+        id: nextId,
+        name,
+        category,
+        quantity: Math.max(0, quantity),
+        minimum: Math.max(0, minimum),
+      },
+      ...currentProducts,
+    ]);
+    setForm({ name: "", category: "", quantity: "1", minimum: "1" });
+    setQuery("");
+    setFilter("all");
+  }
 
   return (
     <div className="demo-shell">
@@ -65,8 +102,8 @@ export function StockDemo() {
           <p className="section-kicker">Demonstração interativa</p>
           <h3>Mini vitrine inspirada no projeto de estoque.</h3>
           <p>
-            Esta demonstração não reproduz o sistema completo, mas mostra a lógica de listagem,
-            busca e leitura de status de produtos em uma interface simples.
+            Esta demonstração não reproduz o sistema completo, mas mostra a lógica de cadastro,
+            listagem, busca e leitura de status de produtos em uma interface simples.
           </p>
         </div>
 
@@ -110,6 +147,54 @@ export function StockDemo() {
           ))}
         </div>
       </div>
+
+      <form className="demo-form" onSubmit={handleSubmit}>
+        <label>
+          <span>Produto</span>
+          <input
+            type="text"
+            value={form.name}
+            onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+            placeholder="Ex.: Monitor LED"
+            required
+          />
+        </label>
+
+        <label>
+          <span>Categoria</span>
+          <input
+            type="text"
+            value={form.category}
+            onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}
+            placeholder="Ex.: Periféricos"
+            required
+          />
+        </label>
+
+        <label>
+          <span>Qtd.</span>
+          <input
+            type="number"
+            min="0"
+            value={form.quantity}
+            onChange={(event) => setForm((current) => ({ ...current, quantity: event.target.value }))}
+            required
+          />
+        </label>
+
+        <label>
+          <span>Mín.</span>
+          <input
+            type="number"
+            min="0"
+            value={form.minimum}
+            onChange={(event) => setForm((current) => ({ ...current, minimum: event.target.value }))}
+            required
+          />
+        </label>
+
+        <button type="submit">Adicionar</button>
+      </form>
 
       <div className="demo-grid">
         {filteredProducts.map((product) => (

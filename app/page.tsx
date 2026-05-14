@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { ActiveNav } from "@/app/components/active-nav";
+import { BackToTop } from "@/app/components/back-to-top";
 import { StockDemo } from "@/app/components/stock-demo";
 
 const sections = [
@@ -26,13 +28,7 @@ export default function Home() {
             {profile.name}
           </a>
 
-          <div className="nav-links">
-            {sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`}>
-                {section.label}
-              </a>
-            ))}
-          </div>
+          <ActiveNav sections={sections} />
         </nav>
 
         <section id="topo" className="hero-content">
@@ -126,13 +122,25 @@ export default function Home() {
           <h2>Uma apresentação objetiva da minha jornada até o foco em backend.</h2>
         </div>
 
-        <div className="two-column">
-          <p className="body-copy">
-            Estou construindo minha carreira com foco em desenvolvimento
-            backend. Meu interesse principal está em entender como sistemas
-            funcionam por trás da interface: fluxo de dados, estrutura de APIs,
-            persistência, regras de negócio e confiabilidade.
-          </p>
+        <div className="about-grid">
+          <div className="about-photo">
+            <Image
+              src="/bruno-souza-hero2.jpg"
+              alt="Bruno Souza"
+              fill
+              sizes="(max-width: 960px) 100vw, 220px"
+              className="about-photo-image"
+            />
+          </div>
+
+          <div className="about-copy">
+            <p className="body-copy">
+              Estou construindo minha carreira com foco em desenvolvimento
+              backend. Meu interesse principal está em entender como sistemas
+              funcionam por trás da interface: fluxo de dados, estrutura de APIs,
+              persistência, regras de negócio e confiabilidade.
+            </p>
+          </div>
 
           <ul className="highlight-list">
             {profile.strengths.map((item) => (
@@ -171,7 +179,10 @@ export default function Home() {
             const content = (
               <article>
                 <div className="project-header">
-                  <h3>{project.name}</h3>
+                  <div>
+                    <span className="project-period">{project.period}</span>
+                    <h3>{project.name}</h3>
+                  </div>
                   <div className="stack-list" aria-label="Tecnologias usadas">
                     {project.stack.map((item) => (
                       <span key={item}>{item}</span>
@@ -351,6 +362,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <BackToTop />
     </main>
   );
 }
