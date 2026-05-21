@@ -56,15 +56,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="hero-details">
-              <p className="hero-details-title">O que estou fortalecendo agora</p>
-              <ul className="hero-details-list">
-                {profile.currentFocus.slice(0, 3).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
             <div className="hero-actions">
               <a className="button button-primary" href="#projetos">
                 Ver projetos
@@ -118,15 +109,6 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="about-photo">
-            <Image
-              src="/bruno-souza-hero2.jpg"
-              alt="Bruno Souza"
-              fill
-              sizes="(max-width: 960px) 100vw, 380px"
-              className="about-photo-image"
-            />
-          </div>
         </div>
       </section>
 
