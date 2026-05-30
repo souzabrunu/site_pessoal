@@ -2,6 +2,7 @@ import Image from "next/image";
 import { profile } from "@/data/profile";
 import { ActiveNav } from "@/app/components/active-nav";
 import { BackToTop } from "@/app/components/back-to-top";
+import { SiteInteractions } from "@/app/components/site-interactions";
 import { StockDemo } from "@/app/components/stock-demo";
 
 const sections = [
@@ -192,7 +193,7 @@ export default function Home() {
                   className="project-card project-card-link"
                   href={primaryLink.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {content}
                 </a>
@@ -354,18 +355,7 @@ export default function Home() {
         </div>
       </section>
       <BackToTop />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (() => {
-              const nav = document.querySelector('.topbar');
-              const update = () => nav?.classList.toggle('is-scrolled', window.scrollY > 12);
-              update();
-              window.addEventListener('scroll', update, { passive: true });
-            })();
-          `,
-        }}
-      />
+      <SiteInteractions />
     </main>
   );
 }
