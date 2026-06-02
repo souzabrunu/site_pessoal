@@ -64,13 +64,12 @@ export const profile: Profile = {
   resumeLabel: "Currículo em PDF",
   role: "Construindo minha base\npara atuar com\nbackend",
   headline:
-    "Utilizo IA generativa, incluindo Claude, como apoio no desenvolvimento, aprendizado contínuo e otimização de soluções. Desenvolvo projetos em Python para fortalecer lógica de programação, CRUD, persistência de dados e organização de código, construindo uma base sólida para atuação em backend.",
+    "Utilizo IA generativa, incluindo Claude de Codex, como apoio no desenvolvimento, aprendizado contínuo e otimização de soluções. Desenvolvo projetos em Python para fortalecer lógica de programação, CRUD, persistência de dados e organização de código, construindo uma base sólida para atuação em backend.",
   intro:
     "Este site funciona como meu currículo vivo. Aqui reúno projetos, certificados e objetivos profissionais para mostrar como estou transformando estudo consistente em repertório técnico prático.",
   quickFacts: [
     { label: "Projetos", href: "#projetos" },
     { label: "Certificações", href: "#certificacoes" },
-    { label: "Currículo", href: "/cur.pdf" },
   ],
   currentFocus: [
     "Prática de CRUD com fluxos de cadastro, consulta, edição e exclusão em aplicações de terminal.",

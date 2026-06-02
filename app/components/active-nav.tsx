@@ -1,6 +1,8 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
+import { scrollToHash } from "@/app/components/site-interactions";
 
 type SectionLink = {
   id: string;
@@ -14,32 +16,44 @@ type ActiveNavProps = {
 export function ActiveNav({ sections }: ActiveNavProps) {
   const [activeSection, setActiveSection] = useState(sections[0]?.id);
 
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    event.preventDefault();
+    scrollToHash(`#${sectionId}`);
+  };
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+    let animationFrame = 0;
 
-        if (visibleEntry) {
-          setActiveSection(visibleEntry.target.id);
+    const updateActiveSection = () => {
+      const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height ?? 0;
+      const readingLine = window.scrollY + topbarHeight + 120;
+      let currentSection = sections[0]?.id;
+
+      for (const section of sections) {
+        const element = document.getElementById(section.id);
+
+        if (element && element.offsetTop <= readingLine) {
+          currentSection = section.id;
         }
-      },
-      {
-        rootMargin: "-24% 0px -58% 0px",
-        threshold: [0.12, 0.28, 0.48],
-      },
-    );
-
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-
-      if (element) {
-        observer.observe(element);
       }
-    });
 
-    return () => observer.disconnect();
+      setActiveSection(currentSection);
+    };
+
+    const queueUpdate = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", queueUpdate, { passive: true });
+    window.addEventListener("resize", queueUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", queueUpdate);
+      window.removeEventListener("resize", queueUpdate);
+    };
   }, [sections]);
 
   return (
@@ -48,6 +62,7 @@ export function ActiveNav({ sections }: ActiveNavProps) {
         <a
           key={section.id}
           href={`#${section.id}`}
+          onClick={(event) => handleClick(event, section.id)}
           className={activeSection === section.id ? "is-active" : undefined}
           aria-current={activeSection === section.id ? "location" : undefined}
         >
