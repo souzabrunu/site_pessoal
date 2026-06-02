@@ -19,9 +19,10 @@ const sections = [
 
 export default function Home() {
   return (
-    <main className="page-shell">
-      <div className="ambient ambient-left" aria-hidden="true" />
-      <div className="ambient ambient-right" aria-hidden="true" />
+    <>
+      <main className="page-shell">
+        <div className="ambient ambient-left" aria-hidden="true" />
+        <div className="ambient ambient-right" aria-hidden="true" />
 
       <header className="hero">
         <nav className="topbar" aria-label="Navegação principal">
@@ -354,8 +355,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+        <SiteInteractions />
+      </main>
       <BackToTop />
-      <SiteInteractions />
-    </main>
+    </>
   );
 }

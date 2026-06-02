@@ -70,7 +70,6 @@ export const profile: Profile = {
   quickFacts: [
     { label: "Projetos", href: "#projetos" },
     { label: "Certificações", href: "#certificacoes" },
-    { label: "Currículo", href: "/cur.pdf" },
   ],
   currentFocus: [
     "Prática de CRUD com fluxos de cadastro, consulta, edição e exclusão em aplicações de terminal.",
