@@ -13,6 +13,7 @@ export type ContactItem = {
 export type Project = {
   name: string;
   period: string;
+  featured?: boolean;
   description: string;
   stack: string[];
   technicalChallenge: string;
@@ -68,6 +69,7 @@ export const profile: Profile = {
   intro:
     "Este site funciona como meu currículo vivo. Aqui reúno projetos, certificados e objetivos profissionais para mostrar como estou transformando estudo consistente em repertório técnico prático.",
   quickFacts: [
+    { label: "Rivio", href: "https://www.rivioapp.com.br" },
     { label: "Projetos", href: "#projetos" },
     { label: "Certificações", href: "#certificacoes" },
   ],
@@ -171,6 +173,23 @@ export const profile: Profile = {
     },
   ],
   projects: [
+    {
+      name: "Rivio — gestão para profissionais da beleza",
+      period: "SaaS em operação • 2026",
+      featured: true,
+      description:
+        "Aplicativo para profissionais autônomos da beleza organizarem agenda, clientes, comandas e financeiro em um só lugar. Uma solução prática para transformar a rotina de atendimento em uma operação mais simples e previsível.",
+      stack: ["SaaS", "Produto digital", "PWA"],
+      technicalChallenge:
+        "Reunir os fluxos essenciais de quem atende de forma autônoma — do agendamento ao caixa — em uma experiência leve, intuitiva e útil no dia a dia.",
+      decisions:
+        "Estruturei o produto em torno da rotina real do profissional: agenda, cadastro e histórico de clientes, serviços, comandas e acompanhamento financeiro.",
+      learning:
+        "Aprofundei a visão de produto ao transformar necessidades de um público específico em uma solução digital pronta para uso e divulgação.",
+      links: [
+        { label: "Conhecer o Rivio", href: "https://www.rivioapp.com.br" },
+      ],
+    },
 
     {
       name: "Calculadora Interativa Python",

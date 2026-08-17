@@ -410,6 +410,18 @@ img {
   box-shadow: 0 16px 42px rgba(246, 248, 251, 0.12);
 }
 
+.button-rivio {
+  border: 1px solid rgba(247, 178, 103, 0.42);
+  background: rgba(247, 178, 103, 0.12);
+  color: #ffd7ad;
+}
+
+.button-rivio:hover {
+  border-color: rgba(247, 178, 103, 0.8);
+  background: rgba(247, 178, 103, 0.2);
+  box-shadow: 0 16px 42px rgba(247, 178, 103, 0.1);
+}
+
 .button-secondary {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.055);
@@ -664,6 +676,31 @@ img {
 
 .project-card:first-child {
   grid-column: 1 / -1;
+}
+
+.project-card-featured {
+  border-color: rgba(247, 178, 103, 0.34);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(247, 178, 103, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(125, 211, 252, 0.09), transparent 46%),
+    rgba(255, 255, 255, 0.052);
+}
+
+.project-card-featured:hover {
+  border-color: rgba(247, 178, 103, 0.68);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(247, 178, 103, 0.24), transparent 30%),
+    linear-gradient(135deg, rgba(125, 211, 252, 0.12), transparent 46%),
+    rgba(255, 255, 255, 0.066);
+}
+
+.project-card-featured .project-period {
+  color: var(--warm);
+}
+
+.project-card-featured .project-number {
+  color: var(--warm);
+  opacity: 0.13;
 }
 
 .project-card article {

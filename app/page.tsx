@@ -62,6 +62,14 @@ export default function Home() {
               <a className="button button-primary" href="#projetos">
                 Ver projetos
               </a>
+              <a
+                className="button button-rivio"
+                href="https://www.rivioapp.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conhecer o Rivio
+              </a>
               <a className="button button-secondary" href="/cur.pdf" target="_blank" rel="noreferrer">
                 Ver currículo
               </a>
@@ -191,7 +199,7 @@ export default function Home() {
               return isClickable ? (
                 <a
                   key={project.name}
-                  className="project-card project-card-link"
+                  className={`project-card project-card-link${project.featured ? " project-card-featured" : ""}`}
                   href={primaryLink.href}
                   target="_blank"
                   rel="noopener noreferrer"
