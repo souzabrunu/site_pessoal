@@ -6,14 +6,14 @@ export function About() {
       <div className="section-label">Sobre</div>
       <div className="about-content" data-reveal="right">
         <p className="about-lead">
-          Gosto de entender o sistema inteiro: quem usa, qual problema precisa ser resolvido e como os dados percorrem cada etapa.
+          Desenvolvimento de software com visão de interface, produto e entrega.
         </p>
         <div className="about-columns">
           <p>
-            Minha trajetória combina Engenharia da Computação, projetos autorais em Python e a experiência de colocar um produto digital real no ar.
+            Trabalho na construção de aplicações web, interfaces e landing pages, organizando conteúdo e fluxos para que cada entrega seja clara, responsiva e funcional.
           </p>
           <p>
-            Hoje, avanço em backend sem perder a visão de produto: regras de negócio claras, experiências simples e entregas que resolvem uma rotina concreta.
+            Também mantenho o Rivio em evolução e amplio minha base técnica em desenvolvimento de software, transformando requisitos em experiências digitais concretas.
           </p>
         </div>
         <div className="about-links">

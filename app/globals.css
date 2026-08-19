@@ -104,9 +104,10 @@ html[data-scrolled] .site-header {
 
 .brand {
   font-family: var(--font-display), Arial, sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   font-weight: 760;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .brand span {
@@ -159,12 +160,30 @@ html[data-scrolled] .site-header {
 .header-contact {
   padding: 10px 14px;
   border: 1px solid var(--ink);
+  white-space: nowrap;
   transition: background 160ms ease, color 160ms ease;
 }
 
 .header-contact:hover {
   background: var(--ink);
   color: var(--white);
+}
+
+.contact-secondary {
+  display: block;
+  width: fit-content;
+  margin-top: 14px;
+  color: var(--dark-muted);
+  font-size: 0.84rem;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.contact-secondary:hover {
+  color: var(--white);
+  text-decoration-color: currentColor;
 }
 
 .hero {
@@ -303,28 +322,6 @@ html[data-scrolled] .site-header {
 
 .portrait-frame:hover .portrait {
   transform: scale(1.035);
-}
-
-.portrait-caption {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 0 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.portrait-caption p {
-  margin: 0;
-}
-
-.status-dot {
-  width: 9px;
-  height: 9px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: #2f9f69;
-  box-shadow: 0 0 0 4px rgba(47, 159, 105, 0.12);
 }
 
 .content-section {
@@ -745,9 +742,16 @@ html[data-scrolled] .site-header {
   color: var(--muted);
 }
 
-.project-summary a {
-  display: inline-block;
+.project-link-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 24px;
+}
+
+.project-link-group > a:not(.project-thumbnail) {
+  display: inline-block;
+  margin: 0;
   padding-bottom: 3px;
   border-bottom: 1px solid currentColor;
   font-size: 0.8rem;
@@ -755,9 +759,33 @@ html[data-scrolled] .site-header {
   transition: color 180ms ease, letter-spacing 180ms ease;
 }
 
-.project-summary a:hover {
+.project-link-group > a:not(.project-thumbnail):hover {
   color: var(--accent);
   letter-spacing: 0.02em;
+}
+
+.project-thumbnail {
+  width: 80px;
+  height: 48px;
+  flex: 0 0 auto;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  line-height: 0;
+}
+
+.project-thumbnail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 220ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-thumbnail:hover img {
+    transform: scale(1.04);
+  }
 }
 
 .project-rationale {

@@ -6,8 +6,11 @@ export function Contact() {
       <div className="section-shell contact-grid" data-reveal="up">
         <p className="section-label section-label-light">Contato</p>
         <div>
-          <h2>Tem um produto para construir ou uma oportunidade para conversar?</h2>
-          <a className="contact-email" href={profile.contact.email}>{profile.contact.emailLabel} ↗</a>
+          <h2>Tem um produto digital, sistema SaaS ou ideia para tirar do papel?</h2>
+          <a className="contact-email" href={profile.contact.whatsapp} target="_blank" rel="noreferrer">
+            Conversar com Bruno ↗
+          </a>
+          <a className="contact-secondary" href={profile.contact.email}>{profile.contact.emailLabel}</a>
         </div>
       </div>
       <footer className="section-shell footer">

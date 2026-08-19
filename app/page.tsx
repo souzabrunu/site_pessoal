@@ -23,10 +23,12 @@ export default function Home() {
       <header className="site-header">
         <nav className="section-shell topbar" aria-label="Navegação principal">
           <a className="brand" href="#inicio" aria-label="Bruno Souza, início">
-            BS<span>.</span>
+            Bruno<span> Souza</span>
           </a>
           <ActiveNav sections={sections} />
-          <a className="header-contact" href={profile.contact.email}>Vamos conversar</a>
+          <a className="header-contact" href={profile.contact.whatsapp} target="_blank" rel="noreferrer">
+            Conversar com Bruno ↗
+          </a>
         </nav>
       </header>
 
@@ -37,7 +39,7 @@ export default function Home() {
         <section id="projetos" className="content-section projects-section">
           <div className="section-shell section-heading-row" data-reveal="left">
             <p className="section-label">Projetos selecionados</p>
-            <h2>Trabalho real, decisões claras e o que cada entrega me ensinou.</h2>
+            <h2>Produtos e landing pages que saíram da ideia e ganharam forma.</h2>
           </div>
           <div className="section-shell">
             <FeaturedProject />

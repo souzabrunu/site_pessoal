@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { profile } from "@/data/profile";
 
 export function ProjectList() {
@@ -10,9 +11,16 @@ export function ProjectList() {
             <p className="project-eyebrow">{project.eyebrow}</p>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
-            <a href={project.links[0].href} target="_blank" rel="noreferrer">
-              {project.links[0].label} <span aria-hidden="true">↗</span>
-            </a>
+            <div className="project-link-group">
+              <a href={project.links[0].href} target="_blank" rel="noreferrer">
+                {project.links[0].label} <span aria-hidden="true">↗</span>
+              </a>
+              {project.preview ? (
+                <a className="project-thumbnail" href={project.links[0].href} target="_blank" rel="noreferrer">
+                  <Image src={project.preview.src} alt={project.preview.alt} width={80} height={48} sizes="80px" />
+                </a>
+              ) : null}
+            </div>
           </div>
           <dl className="project-rationale">
             <div>

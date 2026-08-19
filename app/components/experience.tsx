@@ -5,7 +5,7 @@ export function Experience() {
     <section id="experiencia" className="content-section experience-section">
       <div className="section-shell section-heading-row" data-reveal="left">
         <p className="section-label">Experiência e repertório</p>
-        <h2>Capacidades organizadas pelo que consigo entregar.</h2>
+        <h2>O que venho construindo e as ferramentas que fazem parte do meu dia a dia.</h2>
       </div>
 
       <div className="section-shell capability-grid">

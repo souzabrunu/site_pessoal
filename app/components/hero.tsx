@@ -20,12 +20,12 @@ export function Hero() {
 
         <dl className="hero-facts">
           <div>
-            <dt>Projeto atual</dt>
-            <dd>Rivio · SaaS em operação</dd>
+            <dt>Foco atual</dt>
+            <dd>SaaS, aplicações web e produtos digitais</dd>
           </div>
           <div>
             <dt>Direção técnica</dt>
-            <dd>Produtos, dados e backend</dd>
+            <dd>Interfaces web, Next.js e backend</dd>
           </div>
         </dl>
       </div>
@@ -40,10 +40,6 @@ export function Hero() {
             sizes="(max-width: 760px) 92vw, (max-width: 1100px) 42vw, 420px"
             className="portrait"
           />
-        </div>
-        <div className="portrait-caption">
-          <span className="status-dot" aria-hidden="true" />
-          <p>{profile.availability}</p>
         </div>
       </div>
     </section>

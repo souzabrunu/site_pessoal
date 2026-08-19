@@ -11,6 +11,10 @@ export type Project = {
   challenge: string;
   decision: string;
   links: ProjectLink[];
+  preview?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export type Credential = {
@@ -23,14 +27,15 @@ export type Credential = {
 export const profile = {
   name: "Bruno Souza",
   role: "Desenvolvedor de software",
-  headline: "Construo produtos digitais e aplicações orientadas a dados.",
+  headline: "Transformo ideias em experiências digitais.",
   introduction:
-    "Uno visão de produto, desenvolvimento e aprendizado contínuo para transformar problemas reais em experiências simples — com foco crescente em backend.",
+    "Desenvolvo aplicações web e produtos digitais com foco em clareza, boa experiência e entregas funcionais. Também crio landing pages para negócios que precisam comunicar sua proposta com objetividade.",
   location: "Rio de Janeiro, Brasil",
-  availability: "Aberto a oportunidades em desenvolvimento de software",
   contact: {
     email: "mailto:souzabrunu@yahoo.com",
     emailLabel: "souzabrunu@yahoo.com",
+    whatsapp:
+      "https://wa.me/5521981481814?text=Ol%C3%A1%2C%20Bruno!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
     github: "https://github.com/souzabrunu",
     linkedin: "https://www.linkedin.com/in/bruno-souza-9250a4356",
     resume: "/cur.pdf",
@@ -70,6 +75,24 @@ export const profile = {
     ],
   },
   projects: [
+    {
+      name: "Landing page — Isabela Alves",
+      eyebrow: "Next.js · UX/UI · Landing page",
+      description:
+        "Landing page institucional para uma profissional de marketing, conteúdo e estratégia digital, criada para apresentar serviços, processo de trabalho e caminhos de contato.",
+      stack: ["Next.js", "UX/UI", "Responsivo"],
+      challenge:
+        "Transformar uma oferta de serviços criativos em uma página clara, persuasiva e fácil de explorar em qualquer tela.",
+      decision:
+        "Estruturei a narrativa em blocos editoriais — apresentação, serviços, processo e contato — com hierarquia visual, movimento sutil e CTA direto para o WhatsApp.",
+      preview: {
+        src: "/isabela-alves-landing-preview.jpg",
+        alt: "Prévia da landing page desenvolvida para Isabela Alves",
+      },
+      links: [
+        { label: "Visitar landing page", href: "https://isabela-alves.vercel.app/" },
+      ],
+    },
     {
       name: "Sistema de estoque",
       eyebrow: "Python · JSON · Colorama",
@@ -115,34 +138,34 @@ export const profile = {
   ] satisfies Project[],
   capabilities: [
     {
-      title: "Produto e entrega",
+      title: "Produtos digitais",
       description:
-        "Da leitura do problema ao lançamento: definição de fluxos, experiência responsiva, publicação e evolução do produto.",
-      items: ["Descoberta", "Regras de negócio", "PWA", "Iteração"],
+        "Da ideia ao produto em operação: desenho de fluxos, regras de negócio e evolução de experiências para resolver rotinas reais.",
+      items: ["SaaS", "PWA", "Fluxos", "Iteração"],
     },
     {
-      title: "Aplicações orientadas a dados",
+      title: "Landing pages e interfaces",
       description:
-        "Modelagem de cadastros, validações e persistência com atenção à clareza do fluxo e à consistência dos dados.",
-      items: ["Python", "JSON", "CSV", "CRUD"],
+        "Páginas institucionais e de conversão com narrativa, hierarquia visual e uma experiência pensada para funcionar bem em qualquer tela.",
+      items: ["UX/UI", "Next.js", "Responsividade", "Conversão"],
     },
     {
-      title: "Prática de engenharia",
+      title: "Fluxo de desenvolvimento",
       description:
-        "Código organizado por responsabilidade, versionamento e uso criterioso de IA como apoio ao desenvolvimento.",
-      items: ["Git", "GitHub", "TypeScript", "IA aplicada"],
+        "Uso o VS Code como ambiente principal e Cursor, Codex e Claude como apoio para explorar soluções, implementar e revisar com mais velocidade.",
+      items: ["VS Code", "Cursor", "Codex", "Claude"],
     },
   ],
   journey: [
     {
       period: "Agora",
-      title: "Produto real e evolução em backend",
+      title: "Produtos digitais e landing pages",
       description:
-        "Mantenho o Rivio em operação enquanto aprofundo APIs, bancos de dados e arquitetura de aplicações.",
+        "Construo produtos digitais e landing pages, conectando clareza visual, experiência e implementação.",
     },
     {
       period: "2025—2026",
-      title: "Projetos orientados a dados",
+      title: "Aplicações e fundamentos de engenharia",
       description:
         "Construí aplicações em Python com CRUD, validações e persistência em JSON e CSV, publicadas no GitHub.",
     },
