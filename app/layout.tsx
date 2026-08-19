@@ -1,47 +1,57 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Sans, Manrope } from "next/font/google";
+import { getSiteUrl } from "@/data/site";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+const bodyFont = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const displayFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Bruno Souza | Desenvolvedor Backend",
+  metadataBase: new URL(getSiteUrl()),
+  title: "Bruno Souza | Desenvolvedor de software",
   description:
-    "Portfólio de Bruno Souza, desenvolvedor backend em formação, com projetos em Python, CRUD, persistência de dados e links diretos para o GitHub.",
+    "Portfólio de Bruno Souza: produtos digitais, aplicações orientadas a dados e projetos em Python, com foco crescente em backend.",
+  keywords: ["Bruno Souza", "desenvolvedor de software", "backend", "Python", "produto digital", "Rivio"],
+  authors: [{ name: "Bruno Souza" }],
+  creator: "Bruno Souza",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Bruno Souza | Desenvolvedor Backend",
+    title: "Bruno Souza | Produtos digitais e aplicações orientadas a dados",
     description:
-      "Projetos em Python, CRUD, persistência de dados e evolução prática para desenvolvimento backend.",
+      "Conheça o Rivio e outros projetos construídos por Bruno Souza, desenvolvedor de software com foco crescente em backend.",
     url: "/",
     siteName: "Bruno Souza",
-    images: [
-      {
-        url: "/bruno-souza-hero.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Retrato profissional de Bruno Souza",
-      },
-    ],
     locale: "pt_BR",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Bruno Souza — Desenvolvedor de software" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bruno Souza | Desenvolvedor Backend",
-    description:
-      "Portfólio com projetos em Python, CRUD, persistência de dados e foco em backend.",
-    images: ["/bruno-souza-hero.jpeg"],
+    title: "Bruno Souza | Desenvolvedor de software",
+    description: "Produtos digitais, aplicações orientadas a dados e foco crescente em backend.",
+    images: ["/og.png"],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f2f0e9",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <body>{children}</body>
     </html>
   );

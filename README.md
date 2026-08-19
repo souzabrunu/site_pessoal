@@ -1,35 +1,30 @@
-# Site pessoal com foco em backend
+# Portfólio — Bruno Souza
 
-Primeira versao de um site pessoal em Next.js pensado para funcionar como curriculo vivo e portfolio profissional.
+Portfólio pessoal em Next.js com foco em produtos digitais, aplicações orientadas a dados e desenvolvimento backend.
 
-## Como rodar
+## Desenvolvimento local
 
-1. Instale Node.js 20 ou superior.
-2. Instale as dependencias:
+Requer Node.js 20 ou superior.
 
 ```bash
 npm install
-```
-
-3. Rode o projeto localmente:
-
-```bash
 npm run dev
 ```
 
-4. Abra `http://localhost:3000`.
+O site estará disponível em `http://localhost:3000`.
 
-## Onde editar seu conteudo
+## Verificações
 
-Todos os textos, links e projetos ficam centralizados em:
+```bash
+npm run lint
+npm run build
+```
 
-- `data/profile.ts`
+## Conteúdo e assets
 
-Essa estrutura foi deixada simples para facilitar a personalizacao do site sem precisar mexer no layout.
+- Textos, projetos e links: `data/profile.ts`
+- Página e componentes: `app/`
+- Arquivos públicos: `public/`
+- Fotografias originais preservadas: `assets/originals/`
 
-## Proximos passos sugeridos
-
-- Trocar nome, texto de apresentacao e objetivos profissionais.
-- Atualizar GitHub, LinkedIn, email e link do curriculo.
-- Substituir os projetos-exemplo pelos seus projetos reais.
-- Publicar na Vercel para gerar a URL final do portfolio.
+Em produção, configure `NEXT_PUBLIC_SITE_URL` com a URL canônica do portfólio para gerar corretamente os metadados, o sitemap e o robots.txt.

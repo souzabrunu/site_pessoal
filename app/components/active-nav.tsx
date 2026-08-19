@@ -1,72 +1,51 @@
 "use client";
 
-import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
-import { scrollToHash } from "@/app/components/site-interactions";
 
-type SectionLink = {
+type Section = {
   id: string;
   label: string;
 };
 
-type ActiveNavProps = {
-  sections: SectionLink[];
-};
-
-export function ActiveNav({ sections }: ActiveNavProps) {
-  const [activeSection, setActiveSection] = useState(sections[0]?.id);
-
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    event.preventDefault();
-    scrollToHash(`#${sectionId}`);
-  };
+export function ActiveNav({ sections }: { sections: Section[] }) {
+  const [activeSection, setActiveSection] = useState<string>();
 
   useEffect(() => {
-    let animationFrame = 0;
+    const visibleSections = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
 
-    const updateActiveSection = () => {
-      const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height ?? 0;
-      const readingLine = window.scrollY + topbarHeight + 120;
-      let currentSection = sections[0]?.id;
+        const nextSection = [...visibleSections.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+        setActiveSection(nextSection);
+      },
+      { rootMargin: "-20% 0px -60%", threshold: [0, 0.25, 0.5, 0.75] },
+    );
 
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
+    sections.forEach(({ id }) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
 
-        if (element && element.offsetTop <= readingLine) {
-          currentSection = section.id;
-        }
-      }
-
-      setActiveSection(currentSection);
-    };
-
-    const queueUpdate = () => {
-      window.cancelAnimationFrame(animationFrame);
-      animationFrame = window.requestAnimationFrame(updateActiveSection);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", queueUpdate, { passive: true });
-    window.addEventListener("resize", queueUpdate);
-
-    return () => {
-      window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener("scroll", queueUpdate);
-      window.removeEventListener("resize", queueUpdate);
-    };
+    return () => observer.disconnect();
   }, [sections]);
 
   return (
     <div className="nav-links">
-      {sections.map((section) => (
+      {sections.map(({ id, label }) => (
         <a
-          key={section.id}
-          href={`#${section.id}`}
-          onClick={(event) => handleClick(event, section.id)}
-          className={activeSection === section.id ? "is-active" : undefined}
-          aria-current={activeSection === section.id ? "location" : undefined}
+          key={id}
+          href={`#${id}`}
+          className={activeSection === id ? "is-active" : undefined}
+          aria-current={activeSection === id ? "location" : undefined}
         >
-          {section.label}
+          {label}
         </a>
       ))}
     </div>
