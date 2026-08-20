@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="inicio" className="hero section-shell">
       <div className="hero-copy">
-        <p className="eyebrow">{profile.role} · Rio de Janeiro</p>
+        <p className="eyebrow">{profile.role}</p>
         <h1>{profile.headline}</h1>
         <p className="hero-intro">{profile.introduction}</p>
 

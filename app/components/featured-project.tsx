@@ -1,54 +1,5 @@
+import Image from "next/image";
 import { profile } from "@/data/profile";
-
-function ProductPreview() {
-  return (
-    <div className="product-preview" aria-hidden="true">
-      <div className="preview-bar">
-        <span className="preview-mark">R</span>
-        <span>rivio.app</span>
-        <span className="preview-plan">Completo</span>
-      </div>
-      <div className="preview-body">
-        <div className="preview-sidebar" aria-hidden="true">
-          <strong>Rivio</strong>
-          {['Agenda', 'Clientes', 'Serviços', 'Comandas', 'Financeiro'].map((item, index) => (
-            <span key={item} className={index === 0 ? "is-current" : undefined}>{item}</span>
-          ))}
-        </div>
-        <div className="preview-agenda">
-          <div className="agenda-heading">
-            <div>
-              <span>Hoje</span>
-              <strong>Agenda</strong>
-            </div>
-            <span className="preview-action">+ Agendamento</span>
-          </div>
-          <div className="agenda-days" aria-hidden="true">
-            <span>08<br /><strong>Seg</strong></span>
-            <span className="is-today">09<br /><strong>Ter</strong></span>
-            <span>10<br /><strong>Qua</strong></span>
-            <span>11<br /><strong>Qui</strong></span>
-            <span>12<br /><strong>Sex</strong></span>
-          </div>
-          <div className="appointments" aria-hidden="true">
-            <span className="time">10:00</span>
-            <article>
-              <small>10:00 — 11:00</small>
-              <strong>Juliana Alves</strong>
-              <p>Corte e finalização</p>
-            </article>
-            <span className="time">12:30</span>
-            <article className="appointment-alt">
-              <small>12:30 — 13:30</small>
-              <strong>Beatriz Lima</strong>
-              <p>Escova modelada</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function FeaturedProject() {
   const project = profile.featuredProject;
@@ -86,7 +37,15 @@ export function FeaturedProject() {
           </ul>
         </div>
 
-        <ProductPreview />
+        <div className="product-preview">
+          <Image
+            src="/rivio-preview.png"
+            alt="Tela do sistema Rivio mostrando a agenda de atendimentos"
+            width={1321}
+            height={912}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
       </div>
 
       <div className="case-notes">

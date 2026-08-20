@@ -366,7 +366,7 @@ html[data-scrolled] .site-header {
 
   .featured-project:hover .product-preview {
     transform: translate(-4px, -6px);
-    box-shadow: 24px 24px 0 #3157f4;
+    box-shadow: 24px 24px 0 #276f60;
   }
 }
 
@@ -458,7 +458,7 @@ html[data-scrolled] .site-header {
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: #f5f7f6;
   color: #1c2523;
-  box-shadow: 18px 18px 0 #3157f4;
+  box-shadow: 18px 18px 0 #276f60;
   transition: transform 380ms var(--ease-out), box-shadow 380ms var(--ease-out);
 }
 
@@ -1298,7 +1298,7 @@ html[data-scrolled] .site-header {
   }
 
   .product-preview {
-    box-shadow: 10px 10px 0 var(--accent);
+    box-shadow: 10px 10px 0 #276f60;
   }
 
   .preview-body {
