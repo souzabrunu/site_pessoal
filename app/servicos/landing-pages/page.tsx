@@ -46,7 +46,7 @@ export default function LandingPagesService() {
 
       <main id="conteudo">
         <section className="service-hero" id="topo">
-          <div className="service-hero-copy">
+          <div className="service-hero-copy" data-reveal>
             <Link className="back-link" href="/">
               ← Voltar ao portfólio
             </Link>
@@ -74,7 +74,7 @@ export default function LandingPagesService() {
             </div>
           </div>
 
-          <div className="service-hero-board" aria-label="Resumo do serviço">
+          <div className="service-hero-board" aria-label="Resumo do serviço" data-reveal data-reveal-delay="1">
             <div className="browser-mockup">
               <div className="browser-bar">
                 <span />
@@ -102,13 +102,13 @@ export default function LandingPagesService() {
         </section>
 
         <section className="benefits-section section-pad" id="beneficios">
-          <div className="section-heading compact-heading">
+          <div className="section-heading compact-heading" data-reveal>
             <p className="section-kicker">O que muda para você</p>
             <h2>
               Uma página feita para <em>valorizar o seu trabalho.</em>
             </h2>
           </div>
-          <div className="benefit-grid">
+          <div className="benefit-grid" data-reveal data-reveal-delay="1">
             <article>
               <span>01</span>
               <h3>Apresentação profissional</h3>
@@ -133,13 +133,13 @@ export default function LandingPagesService() {
         </section>
 
         <section className="service-projects section-pad" id="projetos-do-servico">
-          <div className="section-heading compact-heading">
+          <div className="section-heading compact-heading" data-reveal>
             <p className="section-kicker">Projetos publicados</p>
             <h2>
               Design pensado para cada <em>voz e oferta.</em>
             </h2>
           </div>
-          <div className="service-project-grid">
+          <div className="service-project-grid" data-reveal data-reveal-delay="1">
             <a
               href="https://isabela-alves.vercel.app/"
               target="_blank"
@@ -174,7 +174,7 @@ export default function LandingPagesService() {
           </div>
         </section>
 
-        <section className="deliverables-section section-pad" id="entregas">
+        <section className="deliverables-section section-pad" id="entregas" data-reveal>
           <div>
             <p className="section-kicker section-kicker-light">O que está incluído</p>
             <h2>Do primeiro alinhamento até a página no ar.</h2>
@@ -191,13 +191,13 @@ export default function LandingPagesService() {
         </section>
 
         <section className="process-section section-pad" id="processo">
-          <div className="section-heading compact-heading">
+          <div className="section-heading compact-heading" data-reveal>
             <p className="section-kicker">Como funciona</p>
             <h2>
               Um processo simples, com <em>começo, meio e publicação.</em>
             </h2>
           </div>
-          <ol className="process-list">
+          <ol className="process-list" data-reveal data-reveal-delay="1">
             <li>
               <span>01</span>
               <strong>Conteúdo</strong>
@@ -226,7 +226,7 @@ export default function LandingPagesService() {
           </ol>
         </section>
 
-        <section className="investment-section" id="investimento">
+        <section className="investment-section" id="investimento" data-reveal>
           <div className="investment-copy">
             <p className="section-kicker">Investimento</p>
             <h2>Landing page profissional</h2>
@@ -247,7 +247,7 @@ export default function LandingPagesService() {
           </div>
         </section>
 
-        <section className="service-final-cta">
+        <section className="service-final-cta" data-reveal>
           <p className="section-kicker section-kicker-light">Próximo passo</p>
           <h2>Pronto para apresentar seu trabalho de forma mais profissional?</h2>
           <p>Conte brevemente o que você faz e o que precisa apresentar.</p>

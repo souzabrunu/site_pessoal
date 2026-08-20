@@ -35,6 +35,11 @@ img {
   height: auto;
 }
 
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
 .skip-link {
   position: fixed;
   top: 10px;
@@ -225,6 +230,7 @@ h1 em {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .availability-card {
@@ -359,6 +365,7 @@ h1 em {
   grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.25fr);
   background: #252629;
   color: var(--white);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 420ms ease;
 }
 
 .featured-project-copy {
@@ -476,6 +483,7 @@ h1 em {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
   padding: clamp(28px, 4vw, 58px);
   background: #67686d;
 }
@@ -484,6 +492,7 @@ h1 em {
   width: 100%;
   margin: auto 0;
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.24);
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-outcomes {
@@ -606,6 +615,7 @@ h1 em {
   grid-template-rows: auto 1fr auto;
   min-height: 670px;
   padding: clamp(36px, 5vw, 76px);
+  transition: background 280ms ease;
 }
 
 .service-card + .service-card {
@@ -757,6 +767,7 @@ h1 em {
 
 .skills-grid article {
   padding: clamp(30px, 4vw, 58px);
+  transition: background 280ms ease, transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skills-grid article + article {
@@ -1098,6 +1109,7 @@ h1 em {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-project > div {
@@ -1314,6 +1326,53 @@ h1 em {
 .service-footer-main {
   background: var(--blue);
   border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual:hover .portrait-frame img {
+    transform: scale(1.035);
+  }
+
+  .featured-project:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 48px rgba(22, 22, 22, 0.18);
+  }
+
+  .featured-project:hover .featured-project-media > img,
+  .service-project:hover img {
+    transform: scale(1.035);
+  }
+
+  .service-card:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .skills-grid article:hover {
+    background: var(--white);
+    transform: translateY(-5px);
+  }
+
+  .contact-primary:hover span,
+  .service-final-cta > a:hover span {
+    transform: translate(4px, -4px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .motion-ready [data-reveal-delay="1"] {
+    transition-delay: 120ms;
+  }
 }
 
 @media (max-width: 980px) {

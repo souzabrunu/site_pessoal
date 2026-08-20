@@ -64,7 +64,7 @@ export default function Home() {
 
       <main id="conteudo">
         <section className="hero" id="inicio">
-          <div className="hero-copy">
+          <div className="hero-copy" data-reveal>
             <p className="eyebrow">Desenvolvedor de software · Rio de Janeiro</p>
             <h1>
               Produtos digitais que funcionam.
@@ -90,7 +90,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="hero-visual">
+          <div className="hero-visual" data-reveal data-reveal-delay="1">
             <div className="portrait-frame">
               <img
                 src="/bruno-souza.webp"
@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         <section className="projects-section section-pad" id="projetos">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal>
             <p className="section-kicker">Projetos selecionados</p>
             <h2>
               Ideias que ganharam <em>forma, fluxo e uso real.</em>
@@ -138,7 +138,7 @@ export default function Home() {
             </p>
           </div>
 
-          <article className="featured-project">
+          <article className="featured-project" data-reveal>
             <div className="featured-project-copy">
               <div className="project-meta">
                 <span>01</span>
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
           </article>
 
-          <div className="technical-projects">
+          <div className="technical-projects" data-reveal>
             <div>
               <p className="section-kicker">Outros projetos técnicos</p>
               <h3>Fundamentos transformados em aplicações.</h3>
@@ -241,7 +241,7 @@ export default function Home() {
         </section>
 
         <section className="services-section" id="servicos">
-          <div className="section-pad services-intro">
+          <div className="section-pad services-intro" data-reveal>
             <p className="section-kicker section-kicker-light">Serviços</p>
             <h2>
               Para quem precisa colocar uma ideia <em>na rua.</em>
@@ -253,7 +253,7 @@ export default function Home() {
           </div>
 
           <div className="service-grid">
-            <article className="service-card service-card-featured">
+            <article className="service-card service-card-featured" data-reveal>
               <p className="service-number">01</p>
               <div>
                 <p className="service-type">Serviço com formato definido</p>
@@ -280,7 +280,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="service-card">
+            <article className="service-card" data-reveal data-reveal-delay="1">
               <p className="service-number">02</p>
               <div>
                 <p className="service-type">Projeto sob medida</p>
@@ -315,7 +315,7 @@ export default function Home() {
         </section>
 
         <section className="career-section section-pad" id="trajetoria">
-          <div className="career-top">
+          <div className="career-top" data-reveal>
             <div>
               <p className="section-kicker">Sobre & repertório</p>
               <h2>
@@ -349,7 +349,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="skills-grid" aria-label="Competências principais">
+          <div className="skills-grid" aria-label="Competências principais" data-reveal>
             <article>
               <span>01</span>
               <h3>Produto</h3>
@@ -382,7 +382,7 @@ export default function Home() {
             </article>
           </div>
 
-          <div className="timeline">
+          <div className="timeline" data-reveal>
             <div className="timeline-heading">
               <p className="section-kicker">Trajetória</p>
               <h3>Uma evolução feita de entregas.</h3>
@@ -422,7 +422,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="contact-section" id="contato">
+        <section className="contact-section" id="contato" data-reveal>
           <div>
             <p className="section-kicker section-kicker-light">Vamos conversar</p>
             <h2>Um produto para construir ou uma oportunidade para compartilhar?</h2>
