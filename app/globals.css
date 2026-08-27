@@ -1099,6 +1099,11 @@ h1 em {
   gap: 28px;
 }
 
+.service-project-grid-single {
+  grid-template-columns: minmax(0, 860px);
+  justify-content: center;
+}
+
 .service-project {
   display: block;
   overflow: hidden;

@@ -139,7 +139,7 @@ export default function LandingPagesService() {
               Design pensado para cada <em>voz e oferta.</em>
             </h2>
           </div>
-          <div className="service-project-grid" data-reveal data-reveal-delay="1">
+          <div className="service-project-grid service-project-grid-single" data-reveal data-reveal-delay="1">
             <a
               href="https://isabela-alves.vercel.app/"
               target="_blank"
@@ -158,19 +158,6 @@ export default function LandingPagesService() {
                 <b aria-hidden="true">↗</b>
               </div>
             </a>
-            <div className="service-project">
-              <img
-                src="/projects/claudia.png"
-                alt="Landing page Autoridade que conecta"
-                width="2880"
-                height="1800"
-              />
-              <div>
-                <span>Marketing estratégico</span>
-                <strong>Autoridade que conecta</strong>
-                <b>Prévia</b>
-              </div>
-            </div>
           </div>
         </section>
 
